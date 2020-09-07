@@ -1,2 +1,2 @@
 # reactjs-i18n-locize-app
-Demo application on the libraries for i18next, react-i18next &amp; locize
+Demo react app using i18next, react-i18next &amp; locize
