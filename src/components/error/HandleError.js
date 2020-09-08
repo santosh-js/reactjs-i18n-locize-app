@@ -18,7 +18,7 @@ function HandleError(props) {
   const [{ id, value, style }] = getErrorByUri(props.history);
   console.log(id, value, style);
   return (
-    <div className={styles.unauth}>
+    <div className={styles.error}>
       <h3>{value}</h3>
 
       <Link className={styles.link} to="/">

@@ -6,7 +6,7 @@ import {
   Redirect,
 } from "react-router-dom";
 import NotFound from "../error/Error404-deprecated/Error";
-import Dashboard from "./Dashboard";
+import Dashboard from "./dashboard/Dashboard";
 import Home from "./home/Home";
 import RouteGuard from "../auth/services/RouteGuard";
 import NotAuthorized from "../error/Error401-deprecated/NotAuthorized";
