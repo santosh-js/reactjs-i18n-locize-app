@@ -1,14 +1,9 @@
 import React from "react";
 import "./App.css";
-import Internalization from "./components/Internalization";
+import AppRouter from "./components/app/AppRouter";
 
 function App() {
-  return (
-    <div className="App">
-      <h1>Demo</h1>
-      <Internalization />
-    </div>
-  );
+  return <AppRouter />;
 }
 
 export default App;
