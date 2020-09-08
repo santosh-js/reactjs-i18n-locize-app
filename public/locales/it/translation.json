@@ -1,6 +1,5 @@
 {
+  "greet": "Ciao",
   "title": "Benvenuto in react e react-i18next",
-  "description": {
-    "one": "Cambia lingua tra inglese e italiano utilizzando i pulsanti sopra."
-  }
+  "description": "Cambia lingua tra inglese e italiano utilizzando i pulsanti sopra."
 }

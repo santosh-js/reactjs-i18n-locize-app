@@ -1,7 +1,6 @@
-import React from "react";
+import React, { Suspense } from "react";
 import serviceObj from "../../auth/services/AuthService";
 import { useTranslation } from "react-i18next";
-import { withRouter } from "react-router";
 import { Link } from "react-router-dom";
 import styles from "./Dashboard.module.css";
 
@@ -24,15 +23,30 @@ function Dashboard() {
         logout
       </Link>
       <div className={styles.lang}>
-        <button onClick={() => change("ait")}>Italian</button>
+        <button onClick={() => change("it")}>Italian</button>
         <button onClick={() => change("en")}>English</button>
       </div>
       <div className={styles.display}>
+        <h1>{t("greet") + " santosh"}</h1>
         <h2>{t("title")}</h2>
       </div>
-      <p>{t("description.one")}</p>
+      <p>{t("description")}</p>
     </div>
   );
 }
 
-export default withRouter(Dashboard);
+// loading component for suspense fallback
+const Loader = () => (
+  <div className="App">
+    <div>loading...</div>
+  </div>
+);
+
+// here app catches the suspense from page in case translations are not yet loaded
+export default function App() {
+  return (
+    <Suspense fallback={<Loader />}>
+      <Dashboard />
+    </Suspense>
+  );
+}
