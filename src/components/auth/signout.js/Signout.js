@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-function Signout() {
+function SignOut() {
   return (
     <div>
       <h1>Logged out Successfully</h1>
@@ -10,4 +10,4 @@ function Signout() {
   );
 }
 
-export default Signout;
+export default SignOut;

@@ -1,11 +1,18 @@
 import React, { useState } from "react";
-import styles from "./Signin.module.css";
+import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
+import TextField from "@material-ui/core/TextField";
+import Grid from "@material-ui/core/Grid";
+import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
+import Typography from "@material-ui/core/Typography";
+import { useStyles } from "../MaterialStyle";
+import Container from "@material-ui/core/Container";
 import serviceObj from "../services/AuthService";
+import { Link } from "react-router-dom";
 
-function Signin(props) {
+function SignIn(props) {
+  const classes = useStyles();
   const CREDENTIALS = { username: "", password: "" };
-
   const [creds, updateCreds] = useState(CREDENTIALS);
 
   const updateInput = (event) => {
@@ -14,7 +21,6 @@ function Signin(props) {
 
   const signin = (event) => {
     event.preventDefault();
-    // alert(JSON.stringify(creds));
     const response = serviceObj.loginService(creds.username, creds.password);
     if (response) {
       props.url.push(`/main/${creds.username}`);
@@ -25,31 +31,63 @@ function Signin(props) {
   };
 
   return (
-    <div className={styles.signin}>
-      <h3>Form</h3>
-      <div>
-        Username:{" "}
-        <input
-          type="text"
-          name="username"
-          value={creds.username}
-          onChange={updateInput}
-        />
-        <br />
-        Password:{" "}
-        <input
-          type="password"
-          name="password"
-          value={creds.password}
-          onChange={updateInput}
-        />{" "}
-        <br />
-        <Button style={{ marginTop: "10px" }} onClick={signin} color="primary">
-          Signin
-        </Button>
+    <Container component="main" maxWidth="xs">
+      <div className={classes.paper}>
+        <Avatar className={classes.avatar}>
+          <LockOutlinedIcon />
+        </Avatar>
+        <Typography component="h1" variant="h5">
+          Sign in
+        </Typography>
+
+        <form onSubmit={signin} className={classes.form} noValidate>
+          <TextField
+            variant="outlined"
+            margin="normal"
+            required
+            fullWidth
+            id="username"
+            label="Username"
+            name="username"
+            value={creds.username}
+            onChange={updateInput}
+            autoComplete="username"
+            autoFocus
+          />
+          <TextField
+            variant="outlined"
+            margin="normal"
+            required
+            fullWidth
+            label="Password"
+            name="password"
+            value={creds.password}
+            onChange={updateInput}
+            type="password"
+            id="password"
+            autoComplete="current-password"
+          />
+
+          <Button
+            type="submit"
+            fullWidth
+            variant="contained"
+            color="primary"
+            className={classes.submit}
+          >
+            Sign In
+          </Button>
+
+          <Grid container justify="flex-end">
+            <Grid item>
+              <Link onClick={props.handleForm}>
+                {"Don't have an account? Sign Up"}
+              </Link>
+            </Grid>
+          </Grid>
+        </form>
       </div>
-    </div>
+    </Container>
   );
 }
-
-export default Signin;
+export default SignIn;

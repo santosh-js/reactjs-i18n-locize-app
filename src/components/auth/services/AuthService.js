@@ -4,6 +4,15 @@ export const USER_SESSION = "unique_session_id";
 
 export const FIRST_INDEX = 0;
 
+function User(id, firstName, lastName, email, username, password) {
+  this.id = id;
+  this.firstName = firstName;
+  this.lastName = lastName;
+  this.email = email;
+  this.username = username;
+  this.password = password;
+}
+
 class AuthService {
   logout() {
     sessionStorage.removeItem(USER_SESSION);
@@ -28,6 +37,16 @@ class AuthService {
       }
       return false;
     }
+  }
+
+  registrationService({ id, firstName, lastName, email, username, password }) {
+    const oldLen = USERS.length;
+    const newLen = USERS.push(
+      new User(id, firstName, lastName, email, username, password)
+    );
+
+    if (oldLen + 1 === newLen) return true;
+    return false;
   }
 }
 
