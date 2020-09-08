@@ -1,5 +1,6 @@
 {
   "greet": "Hello",
   "title": "Welcome to react and react-i18next",
-  "description": "Switch language between english and italian using buttons above."
+  "description": "Switch language between english and italian using buttons above.",
+  "logout": "Logout"
 }

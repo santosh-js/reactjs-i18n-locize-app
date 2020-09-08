@@ -13,7 +13,7 @@ import NotAuthorized from "../error/Error401-deprecated/NotAuthorized";
 import HandleError from "../error/HandleError";
 import Signout from "../auth/signout.js/Signout";
 
-function AppRouter() {
+function AppRouter(props) {
   return (
     <Router>
       <Switch>
