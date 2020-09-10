@@ -8,7 +8,6 @@ import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
 import { useStyles } from "../MaterialStyle";
-import { Link } from "react-router-dom";
 import serviceObj from "../services/AuthService";
 
 function SignUp(props) {
@@ -35,7 +34,7 @@ function SignUp(props) {
     console.log(user);
     const response = serviceObj.registrationService(user);
     if (response) {
-      setCount(count + 1);
+      setCount((prevCount) => prevCount + 1);
       alert("Account created successfully, please sign in");
       props.close();
       props.handleForm();
@@ -67,6 +66,7 @@ function SignUp(props) {
                 label="First Name"
                 value={user.firstName}
                 onChange={updateInput}
+                size="small"
                 autoFocus
               />
             </Grid>
@@ -80,6 +80,7 @@ function SignUp(props) {
                 name="lastName"
                 autoComplete="lname"
                 value={user.lastName}
+                size="small"
                 onChange={updateInput}
               />
             </Grid>
@@ -90,6 +91,7 @@ function SignUp(props) {
                 fullWidth
                 id="username"
                 label="Username"
+                size="small"
                 name="username"
                 autoComplete="username"
                 value={user.username}
@@ -101,6 +103,7 @@ function SignUp(props) {
                 variant="outlined"
                 required
                 fullWidth
+                size="small"
                 id="email"
                 label="Email Address"
                 name="email"
@@ -116,6 +119,7 @@ function SignUp(props) {
                 fullWidth
                 name="password"
                 label="Password"
+                size="small"
                 type="password"
                 id="password"
                 autoComplete="current-password"
@@ -135,9 +139,15 @@ function SignUp(props) {
           </Button>
           <Grid container justify="flex-end">
             <Grid item>
-              <Link to="" onClick={props.handleForm}>
+              <Button
+                // variant="outlined"
+                color="primary"
+                onClick={props.handleForm}
+                size="small"
+                className={classes.margin}
+              >
                 {"Already have an account? Sign in"}
-              </Link>
+              </Button>
             </Grid>
           </Grid>
         </form>

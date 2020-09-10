@@ -8,7 +8,6 @@ import Typography from "@material-ui/core/Typography";
 import { useStyles } from "../MaterialStyle";
 import Container from "@material-ui/core/Container";
 import serviceObj from "../services/AuthService";
-import { Link } from "react-router-dom";
 
 function SignIn(props) {
   const classes = useStyles();
@@ -47,6 +46,7 @@ function SignIn(props) {
             required
             fullWidth
             id="username"
+            size="small"
             label="Username"
             name="username"
             value={creds.username}
@@ -60,6 +60,7 @@ function SignIn(props) {
             required
             fullWidth
             label="Password"
+            size="small"
             name="password"
             value={creds.password}
             onChange={updateInput}
@@ -80,9 +81,15 @@ function SignIn(props) {
 
           <Grid container justify="flex-end">
             <Grid item>
-              <Link onClick={props.handleForm}>
+              <Button
+                // variant="outlined"
+                color="primary"
+                onClick={props.handleForm}
+                size="small"
+                className={classes.margin}
+              >
                 {"Don't have an account? Sign Up"}
-              </Link>
+              </Button>
             </Grid>
           </Grid>
         </form>

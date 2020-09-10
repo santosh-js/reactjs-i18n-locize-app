@@ -5,32 +5,53 @@ import {
   Switch,
   Redirect,
 } from "react-router-dom";
+import { ThemeProvider } from "@material-ui/core/styles";
+import { Paper } from "@material-ui/core";
 import Dashboard from "./dashboard/Dashboard";
 import Home from "./home/Home";
 import RouteGuard from "../auth/services/RouteGuard";
 import HandleError from "../error/HandleError";
 import SignOut from "../auth/signout.js/SignOut";
-import SignIn from "../auth/signin/SignIn";
-import SignUp from "../auth/signup/SignUp";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
 
 function AppRouter(props) {
   return (
-    <Router>
-      <Switch>
-        <Route path="/" exact component={Home} />
-        <Route path="/app" exact component={Home} />
-        <RouteGuard path="/main/:user" exact component={Dashboard} />
-        {/* 
+    <ThemeProvider theme={props.themeObject.theme}>
+      <Paper style={{ height: "100vh" }}>
+        <Router>
+          <Switch>
+            <Route path="/" exact component={Home} />
+            <Route path="/app" exact component={Home} />
+            <RouteGuard path="/main/:user" exact component={Dashboard} />
+            {/* 
           <Route path="/signin" exact component={SignIn} />
           <Route path="/signup" exact component={SignUp} />
         */}
-        <Route path="/logout" exact component={SignOut} />
-        <Route path="/401" exact component={HandleError} />
-        <Route path="/404" exact component={HandleError} />
-        <Redirect to="/404" />
-      </Switch>
-    </Router>
+            <Route path="/logout" exact component={SignOut} />
+            <Route path="/401" exact component={HandleError} />
+            <Route path="/404" exact component={HandleError} />
+            <Redirect to="/404" />
+          </Switch>
+        </Router>
+      </Paper>
+    </ThemeProvider>
   );
 }
 
-export default AppRouter;
+// default theme if no props passed
+AppRouter.defaultProps = {
+  themeObject: {},
+};
+
+// specifying the types of props passed to this component
+AppRouter.propTypes = {
+  themeObject: PropTypes.object.isRequired,
+};
+
+// getting the theme object from store as props
+const mapStateToProps = (state) => ({
+  themeObject: state.theme,
+});
+
+export default connect(mapStateToProps, null)(AppRouter);

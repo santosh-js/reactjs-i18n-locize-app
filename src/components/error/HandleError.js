@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./HandleError.module.css";
 import { Link } from "react-router-dom";
 import { ERRORS } from "../database/Errors";
-import FIRST_INDEX from "../auth/services/AuthService";
+// import FIRST_INDEX from "../auth/services/AuthService";
 
 function getErrorByUri(props) {
   console.log(props.location.pathname);

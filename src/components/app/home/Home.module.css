@@ -1,7 +1,9 @@
 .home {
-  color: aqua;
-  background-color: #282c34;
+  /* color: aqua; */
   min-height: 100vh;
+}
+
+.extra {
   display: flex;
   flex-direction: column;
   text-align: center;
