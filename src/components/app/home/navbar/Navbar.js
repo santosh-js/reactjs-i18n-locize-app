@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, Suspense } from "react";
 import { lightTheme, darkTheme } from "./Themes";
 import logo from "./assets/logos.png";
 import {
@@ -20,23 +20,17 @@ import { changeTheme } from "../../../../actions/themeActions";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-
 // ==================================================
 import serviceObj from "../../../auth/services/AuthService";
 import { useTranslation } from "react-i18next";
-import styles from "../../dashboard/Dashboard.module.css";
 
-function Navbar(props) {
-  // const { t, i18n } = useTranslation();
-
-  // const change = (lng) => {
-  //   console.log(props.username.user);
-  //   i18n.changeLanguage(lng);
-  // };
-
+function Navbar({ props }) {
   const classes = useStyles();
+  const { t, i18n } = useTranslation();
 
-  const [themeColor, setThemeColor] = useState("");
+  const [themeColor, setThemeColor] = useState(
+    props.themeObject.theme.palette.type
+  );
   const [language, setLanguage] = useState("");
 
   const handleChange = (event) => {
@@ -51,8 +45,10 @@ function Navbar(props) {
     if (event.target.name === "lang") {
       console.log("lang");
       setLanguage(event.target.value);
+      i18n.changeLanguage(event.target.value);
     }
   };
+  // console.log(props.themeObject.theme.palette.type);
 
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
@@ -77,22 +73,20 @@ function Navbar(props) {
           >
             <img src={logo} alt="Spineor Logo" />
           </IconButton>
-          <Tooltip title="Visit out blog page">
-            <Typography variant="h6" className={classes.title} />
-          </Tooltip>
-          <Tooltip title="Visit out blog page">
+          <Typography variant="h6" className={classes.title} />
+          <Tooltip title="Visit our blog page">
             <Button size="small" component={Link} to="/blogs">
-              Blogs
+              {t("navbar.blogs")}
             </Button>
           </Tooltip>
           <Tooltip title="About us">
             <Button size="small" component={Link} to="/about">
-              About us
+              {t("navbar.about")}
             </Button>
           </Tooltip>
           <Tooltip title="Contact us">
             <Button size="small" component={Link} to="/contacts">
-              Contact us
+              {t("navbar.contact")}
             </Button>
           </Tooltip>
           <FormControl size="small" className={classes.formControl}>
@@ -105,13 +99,10 @@ function Navbar(props) {
               className={classes.selectEmpty}
               inputProps={{ "aria-label": "Without label" }}
             >
-              <MenuItem value="" disabled>
-                None
-              </MenuItem>
-              <MenuItem value={"EN"}>English</MenuItem>
-              <MenuItem value={"IT"}>Italian</MenuItem>
+              <MenuItem value={"en"}>{t("navbar.english")}</MenuItem>
+              <MenuItem value={"it"}>{t("navbar.italian")}</MenuItem>
             </Select>
-            <FormHelperText>Language</FormHelperText>
+            <FormHelperText>{t("navbar.language")}</FormHelperText>
           </FormControl>
           <FormControl size="small" className={classes.formControl}>
             <Select
@@ -123,10 +114,10 @@ function Navbar(props) {
               className={classes.selectEmpty}
               inputProps={{ "aria-label": "Without label" }}
             >
-              <MenuItem value={"light"}>Light</MenuItem>
-              <MenuItem value={"dark"}>Dark</MenuItem>
+              <MenuItem value={"light"}>{t("navbar.light")}</MenuItem>
+              <MenuItem value={"dark"}>{t("navbar.dark")}</MenuItem>
             </Select>
-            <FormHelperText>Theme</FormHelperText>
+            <FormHelperText>{t("navbar.theme")}</FormHelperText>
           </FormControl>
 
           <div>
@@ -156,9 +147,11 @@ function Navbar(props) {
               open={open}
               onClose={handleClose}
             >
-              <MenuItem onClick={props.handleOpen}>Login</MenuItem>
+              <MenuItem onClick={props.handleOpen}>
+                {t("navbar.login")}
+              </MenuItem>
               <MenuItem component={Link} to="/profile" onClick={handleClose}>
-                Profile
+                {t("navbar.profile")}
               </MenuItem>
               <MenuItem
                 component={Link}
@@ -167,10 +160,8 @@ function Navbar(props) {
                   serviceObj.logout();
                 }}
               >
-                {/* {t("logout")} */}
-                Logout
+                {t("logout")}
               </MenuItem>
-              <Link className={styles.logout}></Link>
             </Menu>
           </div>
         </Toolbar>
@@ -185,7 +176,7 @@ function Navbar(props) {
 // };
 
 // specifying the types of props passed to this component
-Navbar.propTypes = {
+Loading.propTypes = {
   themeObject: PropTypes.object.isRequired,
   changeTheme: PropTypes.func.isRequired,
 };
@@ -195,39 +186,21 @@ const mapStateToProps = (state) => ({
   themeObject: state.theme,
 });
 
-export default connect(mapStateToProps, { changeTheme })(Navbar);
+// loading component for suspense fallback
+const Loader = () => (
+  <div className="App">
+    <div>loading...</div>
+  </div>
+);
 
-// function Dashboard(props) {
-//   return (
-//     <div className={styles.all}>
-//       <div className={styles.lang}>
-//         <button onClick={() => change("it")}>Italian</button>
-//         <button onClick={() => change("en")}>English</button>
-//       </div>
-//       <div className={styles.display}>
-//         <h1>{t("greet") + " " + props.username.user}</h1>
-//         <h2>{t("title")}</h2>
-//       </div>
-//       <p>{t("description")}</p>
-//     </div>
-//   );
-// }
+// here app catches the suspense from page in case translations are not yet loaded
+function Loading(props) {
+  return (
+    <Suspense fallback={<Loader />}>
+      <Navbar props={props} />
+      {/*  <Navbar username={props.match.params}/>  */}
+    </Suspense>
+  );
+}
 
-// // loading component for suspense fallback
-// const Loader = () => (
-//   <div className="App">
-//     <div>loading...</div>
-//   </div>
-// );
-
-// // here app catches the suspense from page in case translations are not yet loaded
-// function Loading(props) {
-//   return (
-//     <Suspense fallback={<Loader />}>
-//       <Dashboard username={props.match.params} />
-//     </Suspense>
-//   );
-// }
-
-// const mapStateToProps = (state) => ({ langauge: state.langauge });
-// export default connect(mapStateToProps, null)(Loading);
+export default connect(mapStateToProps, { changeTheme })(Loading);

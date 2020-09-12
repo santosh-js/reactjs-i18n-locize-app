@@ -1,11 +1,12 @@
 import React from "react";
+import { Banner } from "material-ui-banner";
 
-function Banner() {
+function CustomBanner() {
   return (
     <div>
-      <h1>Banner</h1>
+      <Banner icon={<div />} label="Banner" open />
     </div>
   );
 }
 
-export default Banner;
+export default CustomBanner;

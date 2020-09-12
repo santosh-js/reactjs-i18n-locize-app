@@ -2,5 +2,18 @@
   "greet": "Hello",
   "title": "Welcome to react and react-i18next",
   "description": "Switch language between english and italian using buttons above.",
-  "logout": "Logout"
+  "logout": "Logout",
+  "navbar": {
+    "blogs": "Blogs",
+    "contact": "Contact us",
+    "about": "About us",
+    "english": "English",
+    "italian": "Italian",
+    "language": "Language",
+    "light": "Light",
+    "dark": "Dark",
+    "theme": "Theme",
+    "login": "Login",
+    "profile": "Profile"
+  }
 }

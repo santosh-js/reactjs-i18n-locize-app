@@ -2,5 +2,18 @@
   "greet": "Ciao",
   "title": "Benvenuto in react e react-i18next",
   "description": "Cambia lingua tra inglese e italiano utilizzando i pulsanti sopra.",
-  "logout": "Disconnettersi"
+  "logout": "Disconnettersi",
+  "navbar": {
+    "blogs": "Blogs",
+    "contact": "Contattaci",
+    "about": "Riguardo a noi",
+    "english": "Inglese",
+    "italian": "Ttaliana",
+    "language": "Linguaggio",
+    "light": "Luce",
+    "dark": "Buia",
+    "theme": "Tema",
+    "login": "Accesso",
+    "profile": "Profilo"
+  }
 }
