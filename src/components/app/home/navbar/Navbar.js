@@ -1,6 +1,6 @@
 import React, { useState, Suspense } from "react";
 import { lightTheme, darkTheme } from "./Themes";
-import logo from "./assets/logos.png";
+import logo from "../../../../assets/logo.png";
 import {
   Toolbar,
   IconButton,

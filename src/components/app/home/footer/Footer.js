@@ -1,5 +1,5 @@
-import { Grid, Link, Typography } from "@material-ui/core";
 import React from "react";
+import { Grid, Link, Typography } from "@material-ui/core";
 import styles from "./Footer.module.css";
 import { useStyles } from "./Footer.style";
 import TwitterIcon from "@material-ui/icons/Twitter";
@@ -79,7 +79,7 @@ function Footer() {
           alignItems="flex-start"
           xs={4}
         >
-          <Link href="#">
+          <Link className={styles.links} href="#">
             <Typography className={classes.paper}>Privacy Policy</Typography>
           </Link>
           <Link href="#">

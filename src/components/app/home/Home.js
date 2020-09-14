@@ -1,9 +1,10 @@
 import React, { useCallback, useState } from "react";
 import Navbar from "./navbar/Navbar";
-import AuthModalPortal from "../authentication_portal/AuthModalPortal";
+import AuthModalPortal from "../authentication-portal/AuthModalPortal";
+import Modal from "../authentication-portal/Modal";
 import Footer from "./footer/Footer";
 import Blogs from "./blogs/Blogs";
-import CustomBanner from "./navbar/Banner";
+import CustomBanner from "./banner/Banner";
 
 function Home(props) {
   const [open, setOpen] = useState(false);
@@ -22,6 +23,7 @@ function Home(props) {
     <div>
       <Navbar handleOpen={handleOpen} />
       <AuthModalPortal url={url} modal={open} closeModal={handleClose} />
+      <Modal />
       <CustomBanner />
       <Blogs />
       <Footer />
