@@ -1,5 +1,5 @@
 .error {
-  color: aqua;
+  color: #a71930;
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
@@ -9,7 +9,7 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
 }
-/* 
+/*
 .unauth {
   color: aqua;
   background-color: #282c34;
@@ -23,5 +23,10 @@
 } */
 
 .link {
-  color: navajowhite;
+  color: #efdf00;
+  text-decoration: none;
+}
+
+.link:hover {
+  color: #cdeb8e;
 }

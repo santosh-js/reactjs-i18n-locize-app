@@ -1,5 +1,6 @@
 import React from "react";
 import { Grid, Link, Typography } from "@material-ui/core";
+import { NavLink } from "react-router-dom";
 import styles from "./Footer.module.css";
 import { useStyles } from "./Footer.style";
 import TwitterIcon from "@material-ui/icons/Twitter";
@@ -79,18 +80,34 @@ function Footer() {
           alignItems="flex-start"
           xs={4}
         >
-          <Link className={styles.links} href="#">
+          <Link
+            style={{ color: "rgba(0, 0, 0, 0)" }}
+            className={styles.links}
+            href="#"
+          >
             <Typography className={classes.paper}>Privacy Policy</Typography>
           </Link>
-          <Link href="#">
+          <Link
+            style={{ color: "rgba(0, 0, 0, 0)" }}
+            className={styles.links}
+            href="#"
+          >
             <Typography className={classes.paper}>
               Terms & Conditions
             </Typography>
           </Link>
-          <Link href="#">
+          <Link
+            style={{ color: "rgba(0, 0, 0, 0)" }}
+            className={styles.links}
+            href="#"
+          >
             <Typography className={classes.paper}>Help</Typography>
           </Link>
-          <Link href="#">
+          <Link
+            style={{ color: "rgba(0, 0, 0, 0)" }}
+            className={styles.links}
+            href="#"
+          >
             <Typography className={classes.paper}>About Us</Typography>
           </Link>
         </Grid>

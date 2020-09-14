@@ -62,7 +62,16 @@ function Navbar({ props }) {
   };
 
   return (
-    <div className={classes.root}>
+    <div
+      className={classes.root}
+      style={{
+        position: "fixed",
+        top: "0",
+        width: "100%",
+        zIndex: "100",
+        overflow: "hidden",
+      }}
+    >
       <AppBar position="static">
         <Toolbar>
           <IconButton

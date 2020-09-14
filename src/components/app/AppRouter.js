@@ -11,7 +11,7 @@ import { Paper } from "@material-ui/core";
 import Home from "./home/Home";
 // import RouteGuard from "../auth/services/RouteGuard";
 import HandleError from "../error/HandleError";
-import SignOut from "../auth/signout.js/SignOut";
+import SignOut from "../auth/signout/SignOut";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
@@ -23,7 +23,7 @@ function AppRouter(props) {
           <Switch>
             <Route path="/" exact component={Home} />
             <Route path="/app" exact component={Home} />
-            {/* 
+            {/*
               <RouteGuard path="/main/:user" exact component={Dashboard} />
               <Route path="/signin" exact component={SignIn} />
               <Route path="/signup" exact component={SignUp} />
