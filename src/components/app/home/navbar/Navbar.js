@@ -22,7 +22,6 @@ import {
 import { useStyles } from "./Navbar.style";
 import { AccountCircle } from "@material-ui/icons";
 import MenuIcon from "@material-ui/icons/Menu";
-import { menuItems } from "./NavbarMenuItems";
 import { changeTheme } from "../../../../actions/themeActions";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
@@ -45,16 +44,7 @@ function Navbar(props) {
     properties.themeObject.theme.palette.type
   );
 
-  const langArr = [
-    { lang: "English", code: "en" },
-    { lang: "Italian", code: "it" },
-  ];
-
-  useEffect(() => {
-    langArr;
-  }, []);
-
-  const [language, setLanguage] = useState();
+  const [language, setLanguage] = useState(i18n.language);
 
   const handleChange = (event) => {
     if (event.target.name === "theme") {
