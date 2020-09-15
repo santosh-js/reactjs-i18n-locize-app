@@ -22,7 +22,6 @@ function AppRouter(props) {
         <Router>
           <Switch>
             <Route path="/" exact component={Home} />
-            <Route path="/app" exact component={Home} />
             {/*
               <RouteGuard path="/main/:user" exact component={Dashboard} />
               <Route path="/signin" exact component={SignIn} />
