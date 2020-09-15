@@ -21,7 +21,7 @@ function Home(props) {
 
   return (
     <div>
-      <Navbar handleOpen={handleOpen} />
+      <Navbar url={url} handleOpen={handleOpen} />
       <AuthModalPortal url={url} modal={open} closeModal={handleClose} />
       <Modal />
       <CustomBanner />

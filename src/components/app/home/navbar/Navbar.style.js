@@ -9,6 +9,9 @@ export const useStyles = makeStyles((theme) => ({
   },
   title: {
     flexGrow: 1,
+    [theme.breakpoints.down("xs")]: {
+      flexGrow: 1,
+    },
   },
   formControl: {
     margin: theme.spacing(1),
@@ -16,5 +19,11 @@ export const useStyles = makeStyles((theme) => ({
   },
   selectEmpty: {
     marginTop: theme.spacing(2),
+  },
+  headerOptions: {
+    display: "flex",
+    flex: 1,
+    justifyContent: "space-evenly",
+    // justifyContent: "space-around",
   },
 }));

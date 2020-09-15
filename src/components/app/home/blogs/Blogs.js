@@ -13,7 +13,7 @@ function Blogs(props) {
 
   return (
     <>
-      <div className={styles.section}>
+      {/*  <div className={styles.section}>
         <TextField
           type="text"
           name="location"
@@ -29,13 +29,14 @@ function Blogs(props) {
           variant="outlined"
           style={{ marginLeft: "20px" }}
         />
-      </div>
+      </div> */}
+
       <div className={styles.section}>
         <Typography
           style={{ fontFamily: "Courier New", color: "#3be8b0" }}
           variant="h2"
         >
-          {"..Blog Posts.."}
+          {"Blog Posts"}
         </Typography>
       </div>
       <div className={styles.container}>

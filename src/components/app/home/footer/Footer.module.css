@@ -19,3 +19,9 @@
   margin: 0%;
   padding: 0% 20px 0% 20px;
 }
+
+.display-responsive {
+  display: grid;
+  grid-row: 1 / span 2;
+  grid-column: 1 / span 2;
+}

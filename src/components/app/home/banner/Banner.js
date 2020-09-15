@@ -1,13 +1,13 @@
 import React, { useEffect } from "react";
 // import styles from "./Banner.module.css";
-import main from "../../../../assets/main.jpg";
-import one from "../../../../assets/one.jpg";
-import two from "../../../../assets/two.jpg";
-import three from "../../../../assets/three.jpg";
-import four from "../../../../assets/four.jpeg";
-import five from "../../../../assets/five.jpeg";
-import six from "../../../../assets/six.jpg";
-import seven from "../../../../assets/seven.jpg";
+import main from "../../../../assets/carousels/main.jpg";
+import one from "../../../../assets/carousels/one.jpg";
+import two from "../../../../assets/carousels/two.jpg";
+import three from "../../../../assets/carousels/three.jpg";
+import four from "../../../../assets/carousels/four.jpeg";
+import five from "../../../../assets/carousels/five.jpeg";
+import six from "../../../../assets/carousels/six.jpg";
+import seven from "../../../../assets/carousels/seven.jpg";
 
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
