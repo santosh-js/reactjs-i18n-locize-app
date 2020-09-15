@@ -18,7 +18,7 @@ import { connect } from "react-redux";
 function AppRouter(props) {
   return (
     <ThemeProvider theme={props.themeObject.theme}>
-      <Paper style={{ height: "100%" }}>
+      <Paper style={{ width: "100%", height: "100%" }}>
         <Router>
           <Switch>
             <Route path="/" exact component={Home} />

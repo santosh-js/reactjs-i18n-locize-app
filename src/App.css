@@ -1,10 +1,10 @@
-/* :root {
+:root {
   --header-height: 3rem;
   --font-medium: 500;
 }
 
 :root {
-  --first-color: #585555;
+  --first-color: #c1c1c1;
   --white-color: #fafaff;
   --dark-color: #2a3b47;
   --text-color: #00205b;
@@ -28,9 +28,9 @@ body::-webkit-scrollbar-track {
 
 body::-webkit-scrollbar-thumb {
   background-color: var(--first-color);
-  border-radius: 13%;
+  /* border-radius: 13%; */
 }
 
 body::-webkit-scrollbar-button {
   display: none;
-} */
+}

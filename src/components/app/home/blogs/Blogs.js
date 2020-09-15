@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import styles from "./Blogs.module.css";
 import Typography from "@material-ui/core/Typography";
-import { connect } from "react-redux";
-import { TextField } from "@material-ui/core";
+// import { connect } from "react-redux";
+// import { TextField } from "@material-ui/core";
 import planet1 from "../../../../assets/planets/planet1.jpg";
 import planet2 from "../../../../assets/planets/planet2.png";
 import planet3 from "../../../../assets/planets/planet3.jpg";
@@ -11,7 +11,7 @@ import planet5 from "../../../../assets/planets/planet5.jpg";
 import planet6 from "../../../../assets/planets/planet6.jpg";
 
 function Blogs(props) {
-  const [location, setLocation] = useState(props.location);
+  // const [location, setLocation] = useState(props.location);
 
   useEffect(() => {
     console.log("get the ip here !!");
@@ -47,37 +47,37 @@ function Blogs(props) {
       </div>
       <div className={styles.container}>
         <div className={styles.zone}>
-          <img src={planet1} alt="image" className={styles.image} />
+          <img src={planet1} alt="" className={styles.image} />
         </div>
         <div className={styles.zone}>
-          <img src={planet2} alt="image" className={styles.image} />
+          <img src={planet2} alt="" className={styles.image} />
         </div>
         <div className={styles.zone}>
-          <img src={planet3} alt="image" className={styles.image} />
+          <img src={planet3} alt="" className={styles.image} />
         </div>
         <div className={styles.zone}>
-          <img src={planet4} alt="image" className={styles.image} />
+          <img src={planet4} alt="" className={styles.image} />
         </div>
         <div className={styles.zone}>
-          <img src={planet5} alt="image" className={styles.image} />
+          <img src={planet5} alt="" className={styles.image} />
         </div>
         <div className={styles.zone}>
-          <img src={planet6} alt="image" className={styles.image} />
+          <img src={planet6} alt="" className={styles.image} />
         </div>
         <div className={styles.zone}>
-          <img src={planet1} alt="image" className={styles.image} />
+          <img src={planet1} alt="" className={styles.image} />
         </div>
         <div className={styles.zone}>
-          <img src={planet2} alt="image" className={styles.image} />
+          <img src={planet2} alt="" className={styles.image} />
         </div>
         <div className={styles.zone}>
-          <img src={planet3} alt="image" className={styles.image} />
+          <img src={planet3} alt="" className={styles.image} />
         </div>
         <div className={styles.zone}>
-          <img src={planet4} alt="image" className={styles.image} />
+          <img src={planet4} alt="" className={styles.image} />
         </div>
         <div className={styles.zone}>
-          <img src={planet5} alt="image" className={styles.image} />
+          <img src={planet5} alt="" className={styles.image} />
         </div>
       </div>
     </>

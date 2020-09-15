@@ -8,7 +8,6 @@ import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
 import { useStyles } from "../MaterialStyle";
 import serviceObj from "../services/AuthService";
-import FacebookIcon from "@material-ui/icons/Facebook";
 import "./SignIn.css";
 
 function SignUp(props) {

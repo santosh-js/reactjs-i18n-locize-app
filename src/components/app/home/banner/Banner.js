@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 // import styles from "./Banner.module.css";
 import main from "../../../../assets/carousels/main.jpg";
 import one from "../../../../assets/carousels/one.jpg";
@@ -26,30 +26,31 @@ function CustomBanner() {
       stopOnHover={false}
       showIndicators={false}
       swipeable={true}
+      dynamicHeight={true}
     >
       <div>
-        <img src={main} />
+        <img src={main} alt="" />
       </div>
       <div>
-        <img src={one} />
+        <img src={one} alt="" />
       </div>
       <div>
-        <img src={two} />
+        <img src={two} alt="" />
       </div>
       <div>
-        <img src={three} />
+        <img src={three} alt="" />
       </div>
       <div>
-        <img src={four} />
+        <img src={four} alt="" />
       </div>
       <div>
-        <img src={five} />
+        <img src={five} alt="" />
       </div>
       <div>
-        <img src={six} />
+        <img src={six} alt="" />
       </div>
       <div>
-        <img src={seven} />
+        <img src={seven} alt="" />
       </div>
     </Carousel>
   );

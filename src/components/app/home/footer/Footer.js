@@ -13,106 +13,74 @@ function Footer() {
 
   return (
     <footer className={styles.footer}>
-      <Grid container item xs={12} spacing={3}>
-        <Grid item xs={8}>
-          <Grid item xs={12}>
-            <Typography
-              style={{
-                fontFamily: "Courier New",
-                // fontFamily: "source-code-pro",
-                color: "#3be8b0",
-              }}
-              className={classes.paper}
-              variant="h6"
-              gutterBottom
-            >
-              <span style={{ color: "#ffc845" }}>"</span>
-              There are 10 types of people in the world
-              <span style={{ color: "#ffc845" }}>:</span>
-              <br /> those who understand binary
-              <span style={{ color: "#ffc845" }}>,</span>
-              <br /> and those who don't
-              <span style={{ color: "#ffc845" }}>.</span>
-            </Typography>
-          </Grid>
-          <Grid item xs={12}>
-            <Grid
-              container
-              direction="row"
-              justify="center"
-              alignItems="stretch"
-            >
-              <Link
-                className={styles.space}
-                href="https://www.facebook.com/"
-                target="_blank"
-              >
-                <FacebookIcon color="action" />
-              </Link>
-              <Link
-                className={styles.space}
-                href="https://twitter.com/"
-                target="_blank"
-              >
-                <TwitterIcon color="action" />
-              </Link>
-              <Link
-                className={styles.space}
-                href="https://www.linkedin.com/"
-                target="_blank"
-              >
-                <LinkedInIcon color="action" />
-              </Link>
-              <Link
-                className={styles.space}
-                href="https://www.instagram.com/"
-                target="_blank"
-              >
-                <InstagramIcon color="action" />
-              </Link>
-            </Grid>
-          </Grid>
-        </Grid>
-        <Grid
-          style={{ marginTop: "20px" }}
-          container
-          direction="column"
-          justify="space-between"
-          alignItems="flex-start"
-          xs={4}
-        >
-          <Link
-            style={{ color: "rgba(0, 0, 0, 0)" }}
-            className={styles.links}
-            href="#"
+      <div className={styles.container}>
+        <div className={styles.zone}>
+          <Typography
+            style={{
+              fontFamily: "Courier New",
+              // fontFamily: "source-code-pro",
+              color: "#3be8b0",
+              textAlign: "center",
+            }}
+            variant="h6"
+            gutterBottom
           >
+            <span style={{ color: "#ffc845" }}>"</span>
+            There are 10 types of people in the world
+            <span style={{ color: "#ffc845" }}>:</span>
+            <br /> those who understand binary
+            <span style={{ color: "#ffc845" }}>,</span>
+            <br /> and those who don't
+            <span style={{ color: "#ffc845" }}>.</span>
+          </Typography>
+          <div className={styles.links}>
+            <Link
+              className={styles.space}
+              href="https://www.facebook.com/"
+              target="_blank"
+            >
+              <FacebookIcon color="action" />
+            </Link>
+            <Link
+              className={styles.space}
+              href="https://twitter.com/"
+              target="_blank"
+            >
+              <TwitterIcon color="action" />
+            </Link>
+            <Link
+              className={styles.space}
+              href="https://www.linkedin.com/"
+              target="_blank"
+            >
+              <LinkedInIcon color="action" />
+            </Link>
+            <Link
+              className={styles.space}
+              href="https://www.instagram.com/"
+              target="_blank"
+            >
+              <InstagramIcon color="action" />
+            </Link>
+          </div>
+        </div>
+        <div className={styles.zone}>
+          <Link style={{ color: "rgba(0, 0, 0, 0)" }} href="#">
             <Typography className={classes.paper}>Privacy Policy</Typography>
           </Link>
-          <Link
-            style={{ color: "rgba(0, 0, 0, 0)" }}
-            className={styles.links}
-            href="#"
-          >
+          <Link style={{ color: "rgba(0, 0, 0, 0)" }} href="#">
             <Typography className={classes.paper}>
               Terms & Conditions
             </Typography>
           </Link>
-          <Link
-            style={{ color: "rgba(0, 0, 0, 0)" }}
-            className={styles.links}
-            href="#"
-          >
+          <Link style={{ color: "rgba(0, 0, 0, 0)" }} href="#">
             <Typography className={classes.paper}>Help</Typography>
           </Link>
-          <Link
-            style={{ color: "rgba(0, 0, 0, 0)" }}
-            className={styles.links}
-            href="#"
-          >
+          <Link style={{ color: "rgba(0, 0, 0, 0)" }} href="#">
             <Typography className={classes.paper}>About Us</Typography>
           </Link>
-        </Grid>
-      </Grid>
+        </div>
+      </div>
     </footer>
   );
 }
