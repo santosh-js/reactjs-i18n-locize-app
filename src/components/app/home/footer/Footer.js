@@ -19,6 +19,7 @@ function Footer() {
             <Typography
               style={{
                 fontFamily: "Courier New",
+                // fontFamily: "source-code-pro",
                 color: "#3be8b0",
               }}
               className={classes.paper}

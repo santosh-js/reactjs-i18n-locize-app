@@ -1,4 +1,4 @@
-import React, { useState, Suspense } from "react";
+import React, { useState, useEffect, Suspense } from "react";
 import { lightTheme, darkTheme } from "./Themes";
 import logo from "../../../../assets/logo/logo.png";
 import { useTheme } from "@material-ui/core/styles";
@@ -6,7 +6,6 @@ import MuiAccordion from "@material-ui/core/Accordion";
 import MuiAccordionSummary from "@material-ui/core/AccordionSummary";
 import MuiAccordionDetails from "@material-ui/core/AccordionDetails";
 import { withStyles } from "@material-ui/core/styles";
-
 import {
   Toolbar,
   IconButton,
@@ -45,7 +44,17 @@ function Navbar(props) {
   const [themeColor, setThemeColor] = useState(
     properties.themeObject.theme.palette.type
   );
-  const [language, setLanguage] = useState("");
+
+  const langArr = [
+    { lang: "English", code: "en" },
+    { lang: "Italian", code: "it" },
+  ];
+
+  useEffect(() => {
+    langArr;
+  }, []);
+
+  const [language, setLanguage] = useState();
 
   const handleChange = (event) => {
     if (event.target.name === "theme") {
@@ -57,7 +66,6 @@ function Navbar(props) {
       setThemeColor(event.target.value);
     }
     if (event.target.name === "lang") {
-      console.log("lang");
       setLanguage(event.target.value);
       i18n.changeLanguage(event.target.value);
     }
@@ -329,7 +337,7 @@ function Loading(props) {
   return (
     <Suspense fallback={<Loader />}>
       <Navbar properties={props} />
-      {/*  <Navbar username={props.match.params}/>  */}
+      {/* <Navbar username={props.match.params}/>  */}
     </Suspense>
   );
 }
