@@ -3,6 +3,12 @@ import styles from "./Blogs.module.css";
 import Typography from "@material-ui/core/Typography";
 import { connect } from "react-redux";
 import { TextField } from "@material-ui/core";
+import planet1 from "../../../../assets/planets/planet1.jpg";
+import planet2 from "../../../../assets/planets/planet2.png";
+import planet3 from "../../../../assets/planets/planet3.jpg";
+import planet4 from "../../../../assets/planets/planet4.jpg";
+import planet5 from "../../../../assets/planets/planet5.jpg";
+import planet6 from "../../../../assets/planets/planet6.jpg";
 
 function Blogs(props) {
   const [location, setLocation] = useState(props.location);
@@ -41,37 +47,37 @@ function Blogs(props) {
       </div>
       <div className={styles.container}>
         <div className={styles.zone}>
-          <Typography variant="overline">Blog Post 1</Typography>
+          <img src={planet1} alt="image" className={styles.image} />
         </div>
         <div className={styles.zone}>
-          <Typography variant="overline">Blog Post 2</Typography>
+          <img src={planet2} alt="image" className={styles.image} />
         </div>
         <div className={styles.zone}>
-          <Typography variant="overline">Blog Post 3</Typography>
+          <img src={planet3} alt="image" className={styles.image} />
         </div>
         <div className={styles.zone}>
-          <Typography variant="overline">Blog Post 4</Typography>
+          <img src={planet4} alt="image" className={styles.image} />
         </div>
         <div className={styles.zone}>
-          <Typography variant="overline">Blog Post 5</Typography>
+          <img src={planet5} alt="image" className={styles.image} />
         </div>
         <div className={styles.zone}>
-          <Typography variant="overline">Blog Post 6</Typography>
+          <img src={planet6} alt="image" className={styles.image} />
         </div>
         <div className={styles.zone}>
-          <Typography variant="overline">Blog Post 7</Typography>
+          <img src={planet1} alt="image" className={styles.image} />
         </div>
         <div className={styles.zone}>
-          <Typography variant="overline">Blog Post 8</Typography>
+          <img src={planet2} alt="image" className={styles.image} />
         </div>
         <div className={styles.zone}>
-          <Typography variant="overline">Blog Post 9</Typography>
+          <img src={planet3} alt="image" className={styles.image} />
         </div>
         <div className={styles.zone}>
-          <Typography variant="overline">Blog Post 10</Typography>
+          <img src={planet4} alt="image" className={styles.image} />
         </div>
         <div className={styles.zone}>
-          <Typography variant="overline">Blog Post 11</Typography>
+          <img src={planet5} alt="image" className={styles.image} />
         </div>
       </div>
     </>
