@@ -48,11 +48,9 @@ function Navbar(props) {
 
   const handleChange = (event) => {
     if (event.target.name === "theme") {
-      if (event.target.value !== "light") {
-        properties.changeTheme(darkTheme);
-      } else {
-        properties.changeTheme(lightTheme);
-      }
+      event.target.value !== "light"
+        ? properties.changeTheme(darkTheme)
+        : properties.changeTheme(lightTheme);
       setThemeColor(event.target.value);
     }
     if (event.target.name === "lang") {

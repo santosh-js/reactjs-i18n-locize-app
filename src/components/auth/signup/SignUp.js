@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import Avatar from "@material-ui/core/Avatar";
-import Button from "@material-ui/core/Button";
+import { Avatar, Button, Divider } from "@material-ui/core";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import TextField from "@material-ui/core/TextField";
 import Grid from "@material-ui/core/Grid";
@@ -9,6 +8,8 @@ import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
 import { useStyles } from "../MaterialStyle";
 import serviceObj from "../services/AuthService";
+import FacebookIcon from "@material-ui/icons/Facebook";
+import "./SignIn.css";
 
 function SignUp(props) {
   const classes = useStyles();
@@ -152,6 +153,13 @@ function SignUp(props) {
           </Grid>
         </form>
       </div>
+      <Divider />
+      <div style={{ marginTop: "10px" }}></div>
+      <button className="loginBtn loginBtn--facebook">
+        Login with Facebook
+      </button>
+      or
+      <button className="loginBtn loginBtn--google">Login with Google</button>
     </Container>
   );
 }
