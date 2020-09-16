@@ -147,7 +147,7 @@ function Navbar(props) {
   return (
     <div className={classes.root}>
       <AppBar color="transparent" position="fixed">
-        <Toolbar variant="dense">
+        <Toolbar>
           <img src={logo} alt="Spineor Logo" />
           <Typography variant="h6" className={classes.title} />
 
@@ -160,7 +160,7 @@ function Navbar(props) {
                 className={classes.menuButton}
                 onClick={handleBurger}
               >
-                <MenuIcon />
+                <MenuIcon className={classes.fontColor} />
               </IconButton>
               <Menu
                 id="menu-appbar"
@@ -347,25 +347,36 @@ function Navbar(props) {
           ) : (
             <>
               <Tooltip title="Visit our blog page">
-                <Button size="small" component={Link} to="/blogs">
+                <Button
+                  className={classes.fontColor}
+                  size="small"
+                  component={Link}
+                  to="/blogs"
+                >
                   {t("navbar.blogs")}
                 </Button>
               </Tooltip>
               <Tooltip title="About us">
-                <Button size="small" component={Link} to="/about">
+                <Button
+                  className={classes.fontColor}
+                  size="small"
+                  component={Link}
+                  to="/about"
+                >
                   {t("navbar.about")}
                 </Button>
               </Tooltip>
               <Tooltip title="Contact us">
-                <Button size="small" component={Link} to="/contacts">
+                <Button
+                  className={classes.fontColor}
+                  size="small"
+                  component={Link}
+                  to="/contacts"
+                >
                   {t("navbar.contact")}
                 </Button>
               </Tooltip>
-              <FormControl
-                variant="outlined"
-                size="small"
-                className={classes.formControl}
-              >
+              <FormControl size="small" className={classes.formControl}>
                 <Select
                   value={language}
                   onChange={handleChange}
@@ -378,13 +389,11 @@ function Navbar(props) {
                   <MenuItem value={"en"}>{t("navbar.english")}</MenuItem>
                   <MenuItem value={"it"}>{t("navbar.italian")}</MenuItem>
                 </Select>
-                {/*  <FormHelperText>{t("navbar.language")}</FormHelperText>  */}
+                <FormHelperText className={classes.fontColor}>
+                  {t("navbar.language")}
+                </FormHelperText>
               </FormControl>
-              <FormControl
-                variant="outlined"
-                size="small"
-                className={classes.formControl}
-              >
+              <FormControl size="small" className={classes.formControl}>
                 <Select
                   value={themeColor}
                   onChange={handleChange}
@@ -397,7 +406,9 @@ function Navbar(props) {
                   <MenuItem value={"light"}>{t("navbar.light")}</MenuItem>
                   <MenuItem value={"dark"}>{t("navbar.dark")}</MenuItem>
                 </Select>
-                {/* <FormHelperText>{t("navbar.theme")}</FormHelperText> */}
+                <FormHelperText className={classes.fontColor}>
+                  {t("navbar.theme")}
+                </FormHelperText>
               </FormControl>
 
               <div>
@@ -409,7 +420,7 @@ function Navbar(props) {
                   color="inherit"
                 >
                   <Tooltip title="User actions">
-                    <AccountCircle />
+                    <AccountCircle className={classes.fontColor} />
                   </Tooltip>
                 </IconButton>
                 <Menu

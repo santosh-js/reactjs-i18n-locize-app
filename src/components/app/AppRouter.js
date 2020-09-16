@@ -26,8 +26,8 @@ function AppRouter(props) {
               <RouteGuard path="/main/:user" exact component={Dashboard} />
               <Route path="/signin" exact component={SignIn} />
               <Route path="/signup" exact component={SignUp} />
+              <Route path="/logout" exact component={SignOut} />
             */}
-            <Route path="/logout" exact component={SignOut} />
             <Route path="/401" exact component={HandleError} />
             <Route path="/404" exact component={HandleError} />
             <Redirect to="/404" />

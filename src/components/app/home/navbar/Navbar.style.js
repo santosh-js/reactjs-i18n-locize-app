@@ -16,14 +16,19 @@ export const useStyles = makeStyles((theme) => ({
   formControl: {
     margin: theme.spacing(1),
     minWidth: 20,
+    color: "white",
   },
   selectEmpty: {
     marginTop: theme.spacing(2),
+    color: "white",
   },
   headerOptions: {
     display: "flex",
     flex: 1,
     justifyContent: "space-evenly",
     // justifyContent: "space-around",
+  },
+  fontColor: {
+    color: "white",
   },
 }));
