@@ -2,10 +2,7 @@ import React, { useState, useEffect, Suspense } from "react";
 import { lightTheme, darkTheme } from "./Themes";
 import logo from "../../../../assets/logo/logo.png";
 import { useTheme } from "@material-ui/core/styles";
-import MuiAccordion from "@material-ui/core/Accordion";
 import Divider from "@material-ui/core/Divider";
-import MuiAccordionSummary from "@material-ui/core/AccordionSummary";
-import MuiAccordionDetails from "@material-ui/core/AccordionDetails";
 import { withStyles } from "@material-ui/core/styles";
 import {
   Toolbar,
@@ -32,16 +29,24 @@ import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { withRouter } from "react-router-dom";
 import serviceObj from "../../../auth/services/AuthService";
 import { useTranslation } from "react-i18next";
+import { getMenuItems } from "./utils/menuItems";
+import {
+  Accordion,
+  AccordionSummary,
+  AccordionDetails,
+} from "./utils/accordions";
+import useCustomBreakpoint from "../../../../hooks/useCustomBreakpoint";
 
 function Navbar(props) {
   const { properties } = props;
   const [expanded, setExpanded] = useState(false);
 
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+  const isMobile = useCustomBreakpoint(properties.themeObject.theme);
 
   const classes = useStyles();
   const { t, i18n } = useTranslation();
+
+  const menuItems = getMenuItems(t);
 
   const [themeColor, setThemeColor] = useState(
     properties.themeObject.theme.palette.type
@@ -61,62 +66,6 @@ function Navbar(props) {
       i18n.changeLanguage(event.target.value);
     }
   };
-
-  const menuItems = [
-    {
-      menuTitle: t("navbar.blogs"),
-      pageURL: "/blogs",
-    },
-    {
-      menuTitle: t("navbar.about"),
-      pageURL: "/about",
-    },
-    {
-      menuTitle: t("navbar.contact"),
-      pageURL: "/contacts",
-    },
-  ];
-
-  const Accordion = withStyles({
-    root: {
-      border: "1px solid rgba(0, 0, 0, .125)",
-      boxShadow: "none",
-      "&:not(:last-child)": {
-        borderBottom: 0,
-      },
-      "&:before": {
-        display: "none",
-      },
-      "&$expanded": {
-        margin: "auto",
-      },
-    },
-    expanded: {},
-  })(MuiAccordion);
-
-  const AccordionSummary = withStyles({
-    root: {
-      backgroundColor: "rgba(0, 0, 0, .03)",
-      borderBottom: "1px solid rgba(0, 0, 0, .125)",
-      marginBottom: -1,
-      minHeight: 56,
-      "&$expanded": {
-        minHeight: 56,
-      },
-    },
-    content: {
-      "&$expanded": {
-        margin: "12px 0",
-      },
-    },
-    expanded: {},
-  })(MuiAccordionSummary);
-
-  const AccordionDetails = withStyles((theme) => ({
-    root: {
-      padding: theme.spacing(2),
-    },
-  }))(MuiAccordionDetails);
 
   const [anchorEl, setAnchorEl] = useState(null);
   const [hamburgerEl, setHamburgerEl] = useState(null);
@@ -144,9 +93,38 @@ function Navbar(props) {
     setExpanded(isExpanded ? panel : false);
   };
 
+  const [scroll, setScroll] = useState(0);
+  const [background, setBackground] = useState("transparent");
+  const [position, setPosition] = useState("static");
+  const [dense, setDense] = useState();
+
+  const handleScroll = () => {
+    if (window.pageYOffset > 150) {
+      if (background === "transparent") setBackground("primary");
+    } else {
+      if (background === "primary") setBackground("transparent");
+    }
+  };
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+  });
+
+  // useEffect(() => {
+  //   window.addEventListener("scroll", function (event) {
+  //     setScroll(window.scrollY);
+  //     if (scroll > 50) {
+  //       setBackground("primary");
+  //       setPosition("fixed");
+  //     } else {
+  //       setBackground("primary");
+  //       setPosition("static");
+  //     }
+  //   });
+  // }, [scroll]);
+
   return (
     <div className={classes.root}>
-      <AppBar color="transparent" position="fixed">
+      <AppBar color={background} style={{ translations: "transform(0.2)" }}>
         <Toolbar>
           <img src={logo} alt="Spineor Logo" />
           <Typography variant="h6" className={classes.title} />
@@ -250,18 +228,7 @@ function Navbar(props) {
                   </AccordionDetails>
                 </Accordion>
                 <Divider />
-                {/*  <Accordion
-                  expanded={expanded === "panel3"}
-                  onChange={handleAccordionChange("panel3")}
-                >
-                  <AccordionSummary
-                    expandIcon={<ExpandMoreIcon />}
-                    aria-controls="panel3bh-content"
-                    id="panel3bh-header"
-                  >
-                    <Typography className={classes.heading}>User</Typography>
-                  </AccordionSummary>
-                  <AccordionDetails> */}
+
                 <div>
                   <IconButton
                     aria-label="account of current user"
@@ -306,42 +273,6 @@ function Navbar(props) {
                     </MenuItem>
                   </Menu>
                 </div>
-                {/*
-                =======================================
-                <MenuItem onClick={properties.handleOpen}>
-                  {t("navbar.login")}
-                </MenuItem>
-                <Divider />
-                <MenuItem component={Link} to="/401" onClick={handleClose}>
-                  {t("navbar.profile")}
-                </MenuItem>
-                <Divider />
-                <MenuItem
-                  component={Link}
-                  to="/logout"
-                  onClick={() => {
-                    serviceObj.logout();
-                  }}
-                >
-                  {t("logout")}
-                </MenuItem>
-======================================
-                */}
-                {/*</AccordionDetails>
-                </Accordion> */}
-                {/*<Accordion
-                  expanded={expanded === "panel3"}
-                  onChange={handleAccordionChange("panel3")}
-                >
-                  <AccordionSummary
-                    expandIcon={<ExpandMoreIcon />}
-                    aria-controls="panel3bh-content"
-                    id="panel3bh-header"
-                  >
-                    <Typography className={classes.heading}>Login</Typography>
-                  </AccordionSummary>
-                  <AccordionDetails></AccordionDetails>
-                </Accordion>*/}
               </Menu>
             </>
           ) : (
